@@ -6,7 +6,7 @@ pipeline{
     }
     environment {
         packageVersion=''
-        nexusURL='172.31.9.122:8081'
+        nexusURL='172.31.9.122:8081' //prot No: 8081
     }
     options{
         timeout(time: 1, unit: 'HOURS')
@@ -18,7 +18,7 @@ pipeline{
             steps{
                 script{
                     def packageJson = readJSON file: 'package.json'
-                    packageVersion = packageJson.Version
+                    packageVersion = packageJson.version
                     echo "application Version: $packageVersion"
                 }
             }
